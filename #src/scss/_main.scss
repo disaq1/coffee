@@ -1,253 +1,287 @@
-﻿.wrapper {
-    margin: 0;
-    padding: 0;
-    min-width: 320px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+﻿html {
+    scroll-behavior: smooth;
+}
 
+body {
     background: #f8fbff;
 }
 
+.wrapper {
+margin: 0;
+padding: 0;
+min-width: 320px;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
+
+background: #f8fbff;
+}
+
 .header__logo {
-    position: absolute;
-    top: 72px;
-    left: 130px;
+position: absolute;
+top: 72px;
+left: 130px;
 }
 
 .main-header {
-    position: relative;
-    background: url(../img/main-screen-bg.svg);
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position-x: -170px;
-    width: 100%;
-    min-height: 100vh;
+position: relative;
+background: url(../img/main-screen-bg.svg);
+background-size: 100%;
+background-repeat: no-repeat;
+background-position-x: -170px;
+width: 100%;
+min-height: 100vh;
 }
 
 .main-item-link {
-    font-family: 'Nunito', sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700 !important;
-    line-height: 22px;
-    letter-spacing: 0px;
-    text-align: left;
-    color: $lightGray;
+font-family: 'Nunito', sans-serif;
+font-size: 16px;
+font-style: normal;
+font-weight: 700 !important;
+line-height: 22px;
+letter-spacing: 0px;
+text-align: left;
+color: $lightGray;
 }
 
 .header__menu {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 327px;
-    min-height: 100vh;
-    background: $primary;
-    opacity: 0;
+position: absolute;
+top: 0;
+right: 0;
+width: 327px;
+min-height: 100vh;
+background: $primary;
+opacity: 0;
 
-    transition: 0.5s;
+transition: 0.5s;
 
-    &--list {
-        list-style: none;
-        margin: 230px 0 0 56px;
-    }
+&--list {
+    list-style: none;
+    margin: 230px 0 0 56px;
+}
 
-    &--item {
+&--item {
+    @include smooth;
+    margin: 0 0 30px 0;
+    
+    &-link {
+        text-decoration: none;
+        font-family: 'Nunito', sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 24px;
+        letter-spacing: 0px;
+        text-align: left;
+        color: $lightGray;
+
         @include smooth;
-        margin: 0 0 30px 0;
-        
-        &-link {
-            text-decoration: none;
-            font-family: 'Nunito', sans-serif;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 300;
-            line-height: 24px;
-            letter-spacing: 0px;
-            text-align: left;
-            color: $lightGray;
-
-            @include smooth;
-        }
-
-        &-link:hover {
-            border-radius: 5px;
-            padding: 5px;
-            color: $trueWhite;
-            background: rgba($color: $trueWhite, $alpha: 0.5);
-            box-shadow: 0 2px 5px rgba($color: $trueWhite, $alpha: 0.5);
-        }
     }
+
+    &-link:hover {
+        border-radius: 5px;
+        padding: 5px;
+        color: $trueWhite;
+        background: rgba($color: $trueWhite, $alpha: 0.5);
+        box-shadow: 0 2px 5px rgba($color: $trueWhite, $alpha: 0.5);
+    }
+}
 
 
 }
 
 .active{
-    opacity: 1;
+opacity: 1;
 }
 
 .header__cart {
-    position: absolute;
-    top: 86px;
-    right: 210px;
-    z-index: 1;
+position: absolute;
+top: 86px;
+right: 210px;
+z-index: 1;
+display: none;
+
+transition: 0.6s;
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.5);
+    }
+}
+
+.active .header__cart {
+    display: block;
 }
 
 .header__title {
-    position: absolute;
-    top: 500px;
-    left: 105px;
+position: absolute;
+top: 500px;
+left: 105px;
 
-    &--text {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 54px;
-        font-style: normal;
-        font-weight: 900;
-        line-height: 70px;
-        letter-spacing: 0px;
-        text-align: left;
-        color: $primary;
-
-        &-span {
-            color: #F9FBFF;
-            background: $accent;
-        }
-    }
-}
-
-.burger--btn {
-    position: absolute;
-    top: 50px;
-    right: 50px;
-    height: 10px;
-    width: 40px;
-    border: none;
-
-    z-index: 10;
-
-    &::after {
-        position: absolute;
-        content: '';
-        height: 4px;
-        width: 40px;
-        background: #000;
-        left: 0;
-        top: 11px;
-    }
-    &::before {
-        position: absolute;
-        content: '';
-        height: 4px;
-        width: 40px;
-        background: #000;
-        left: 0;
-        top: -1px;
-    }
-    &:hover {
-        cursor: pointer;
-    }
-}
-
-.features {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 87px auto 130px;
-}
-
-.features__pretitle {
-    font-family: 'Nunito', sans-serif;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-    letter-spacing: 0px;
-    text-align: center;
-    color: $primary;
-}
-
-.features__title {
+&--text {
     font-family: 'Montserrat', sans-serif;
-    font-size: 30px;
+    font-size: 54px;
     font-style: normal;
     font-weight: 900;
-    line-height: 34px;
+    line-height: 70px;
     letter-spacing: 0px;
     text-align: left;
     color: $primary;
+
+    &-span {
+        color: #F9FBFF;
+        background: $accent;
+    }
+}
+}
+
+.burger--btn {
+position: absolute;
+top: 50px;
+right: 50px;
+height: 10px;
+width: 40px;
+border: none;
+
+z-index: 10;
+
+&::after {
+    position: absolute;
+    content: '';
+    height: 4px;
+    width: 40px;
+    background: #000;
+    left: 0;
+    top: 11px;
+}
+&::before {
+    position: absolute;
+    content: '';
+    height: 4px;
+    width: 40px;
+    background: #000;
+    left: 0;
+    top: -1px;
+}
+&:hover {
+    cursor: pointer;
+}
+}
+
+.features {
+display: flex;
+flex-direction: column;
+align-items: center;
+margin: 87px auto 130px;
+}
+
+.features__pretitle {
+font-family: 'Nunito', sans-serif;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: 24px;
+letter-spacing: 0px;
+text-align: center;
+color: $primary;
+}
+
+.features__title {
+font-family: 'Montserrat', sans-serif;
+font-size: 30px;
+font-style: normal;
+font-weight: 900;
+line-height: 34px;
+letter-spacing: 0px;
+text-align: left;
+color: $primary;
 }
 
 .features__cards {
-    display: flex;
-    margin-left: 67px;
+display: flex;
+margin-left: 67px;
 }
 
 .features__card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 226px;
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 226px;
 
-    margin: 0 33px;
-    padding: 17px;
+margin: 0 33px;
+padding: 17px;
 
-    &--name {
-        font-family: 'Nunito', sans-serif;
-        font-size: 24px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 28px;
-        letter-spacing: 0px;
-        text-align: left;
-        color: $black;
-    }
+transition: 0.5s;
 
-    &--text {
-        font-family: 'Nunito', sans-serif;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 300;
-        line-height: 22px;
-        letter-spacing: 0px;
-        text-align: center;
-        color: #151D28;
-    }
+img {
+    transition: 0.5s;
+}
+
+img:hover {
+    transform: scale(1.2);
+}
+
+&--name {
+    font-family: 'Nunito', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: $black;
+
+    margin: 25px 0 12px;
+}
+
+&--text {
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 22px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #151D28;
+
+    margin: 0;
+}
 }
 
 
 
 .main-catalog {
-    display: flex;
-    flex-direction: column;
-    position: relative;
+display: flex;
+min-height: 100vh;
+flex-direction: column;
+position: relative;
 
-    &::before {
-        position: absolute;
-        content: '';
-        top: 0;
-        left: 0;
-        width: 384px;
-        height: 100vh;
-        background: $primary;
-    }
+&::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 384px;
+    height: 100vh;
+    background: $primary;
+}
 }
 
 .main-catalog__title {
-    font-family: 'Nunito', sans-serif;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-    letter-spacing: 0px;
-    text-align: center;
-    color: $primary;
+font-family: 'Nunito', sans-serif;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: 24px;
+letter-spacing: 0px;
+text-align: center;
+color: $primary;
 
-    margin: 90px 0 72px 0;
+margin: 90px 0 72px 0;
 }
 
 .main-catalog__title--name {
-    font-family: 'Montserrat', sans-serif;
+font-family: 'Montserrat', sans-serif;
     font-size: 30px;
     font-style: normal;
     font-weight: 900;
@@ -258,46 +292,248 @@
 }
 
 .catalog {
-    display: flex;
-    flex-wrap: wrap;
+display: flex;
+flex-wrap: wrap;
 
-    position: absolute;
-    top: 200px;
-    left: 100px;
+position: absolute;
+top: 200px;
+left: 100px;
 
-    z-index: 1;
+z-index: 1;
 }
 
 .catalog__card {
-    display: flex;
-    width: fit-content;
-    margin: 16px 15px;
-    padding: 0 41px 0 0;
-    background: $trueWhite;
+display: flex;
+min-width: 580px;
+margin: 16px 0 16px 14px;
+padding: 0 41px 0 0;
+background: $trueWhite;
 
-    @include smooth;
+@include smooth;
 
-    &:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 5px 5px rgba($color: $trueBlack, $alpha: 0.5);
-    }
+&:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 5px rgba($color: $trueBlack, $alpha: 0.5), 0 -5px 5px rgba($color: $trueBlack, $alpha: 0.5), 5px 0 5px rgba($color: $trueBlack, $alpha: 0.5), -5px 0 5px rgba($color: $trueBlack, $alpha: 0.5);
+}
 }
 
 .card__img {
-    transition: 0.7s;
-    &:hover {
-        transform: scale(1.1);
-    }
-    &--wrapper {
-        width: 256px;
-        background: #979797;
-    }
+transition: 0.7s;
+&:hover {
+    transform: scale(1.1);
+}
+&--wrapper {
+    width: 256px;
+    background: #979797;
+}
 }
 
 .card__description {
+display: flex;
+flex-direction: column;
+margin: 0 0 0 42px;
+
+&--price {
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: $accent;
+    margin: 42px 0 8px 0;
+}
+
+&--name {
+    font-family: 'Nunito', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: $black;
+    margin: 0 0 24px 0;
+}
+
+&--desc {
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 22px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: $darkGray;
+    margin: 0 0 37px 0;
+}
+
+&--btn {
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #F9FBFF;
+    background: $accent;
+    border: none;
+    border-radius: 19px;
+    margin: 0 18px 0 0;
+    padding: 5px 15px 6px 17px;
+
+    transition: 0.5s;
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba($color: $trueBlack, $alpha: 0.5);
+    }
+}
+
+&--more {
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: $primary;
+    text-decoration: none;
+
+    @include smooth;
+    &:hover {
+        text-decoration: underline;
+        color: $trueBlack;
+    }
+}
+}
+
+.main-gift {
+    position: relative;
     display: flex;
+    flex-direction: column ;
+    align-items: flex-end;
+    
+    margin: 0 0 150px 0;
+
+    &::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        background: #EDF0F5;
+        width: 1076px;
+        height: 100vh;
+        z-index: 0;
+    }
+
+    &__title {
+        z-index: 10;
+        font-family: 'Nunito', sans-serif;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: 0px;
+        text-align: center;
+        color: $primary;
+
+        margin: 86px auto 66px;
+
+        &--span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 30px;
+            font-style: normal;
+            font-weight: 900;
+            line-height: 34px;
+            letter-spacing: 0px;
+            text-align: left;
+        }
+    }
+}
+
+.tab {
+    display:flex;
     flex-direction: column;
-    margin: 0 0 0 42px;
+    justify-content: space-evenly;
+    overflow: hidden;
+    border: 1px solid #EDF0F5;
+    background-color: #EDF0F5;
+
+    @include smooth;
+}
+
+.tablinks {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 34px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: $primary;
+}
+
+.tab__info--wrapp {
+    display: flex;
+    z-index: 2;
+    background: #F9FBFF;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 77px 44px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background: #F9FBFF;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+
+    &:first-child {
+        display: block;
+    }
+}
+
+.gift__wrapper {
+    position: relative;
+    display: flex;
+}
+
+.img--wrapper {
+    position: absolute;
+    top: 0;
+    left: -250px;
+    margin: 64px 64px 0 0;
+
+    transition: 1.4s;
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.gift__desc {
+    margin: 64px 0 0 300px;
+    max-width: 430px;
 
     &--price {
         font-family: 'Nunito', sans-serif;
@@ -308,7 +544,6 @@
         letter-spacing: 0px;
         text-align: left;
         color: $accent;
-        margin: 42px 0 8px 0;
     }
 
     &--name {
@@ -320,10 +555,9 @@
         letter-spacing: 0px;
         text-align: left;
         color: $black;
-        margin: 0 0 24px 0;
     }
 
-    &--desc {
+    &--description {
         font-family: 'Nunito', sans-serif;
         font-size: 16px;
         font-style: normal;
@@ -332,47 +566,139 @@
         letter-spacing: 0px;
         text-align: left;
         color: $darkGray;
-        margin: 0 0 37px 0;
     }
 
-    &--btn {
+    &--characteristic {
+        display: flex;
+    }
+}
+
+.characteristic {
+    display: flex;
+    align-items: center;
+    margin: 0 38px 46px 0;
+
+    &--desc {
         font-family: 'Nunito', sans-serif;
         font-size: 16px;
         font-style: normal;
-        font-weight: 700;
-        line-height: 22px;
-        letter-spacing: 0px;
-        text-align: center;
-        color: #F9FBFF;
-        background: $accent;
-        border: none;
-        border-radius: 19px;
-        margin: 0 18px 0 0;
-        padding: 5px 15px 6px 17px;
-
-        transition: 0.5s;
-        &:hover {
-            cursor: pointer;
-            transform: scale(1.01);
-            box-shadow: 0 2px 5px rgba($color: $trueBlack, $alpha: 0.5);
-        }
-    }
-
-    &--more {
-        font-family: 'Nunito', sans-serif;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 700;
+        font-weight: 600;
         line-height: 22px;
         letter-spacing: 0px;
         text-align: left;
         color: $primary;
-        text-decoration: none;
+        margin: 0 0 0 12px;
+    }
 
-        @include smooth;
-        &:hover {
-            text-decoration: underline;
-            color: $trueBlack;
+    &--desc p {
+        font-weight: 300;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.main-combo {
+    width: 100%;
+    min-height: 100vh;
+
+    z-index: 1;
+    position: relative;
+
+    &::after {
+        width: 327px;
+        height: 100%;
+        min-height: 100vh;
+        position: absolute;
+        content: '';
+        top: 0;
+        right: 0;
+        background: $primary;
+        z-index: 0;
+    }
+
+    &__catalog {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        z-index: 2;
+
+        &--card {
+            max-width: 360px;
+            margin: 0 15px;
+
+            transition: 0.5s;
+
+            z-index: 2;
+            &-img-wrapper {
+                background: #EDF0F5;
+            }
+
+            &-img-wrapper img {
+                transition: 0.7s;
+            }
+
+            &-img-wrapper img:hover {
+                transform: scale(1.1);
+            }
+
+            &-description {
+                background: $trueWhite;
+                padding: 34px 42px 42px;
+
+                &--price {
+                    display: flex;
+                    align-items: center;
+
+                    font-family: 'Nunito', sans-serif;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 24px;
+                    letter-spacing: 0px;
+                    text-align: left;
+                    color: $accent;
+                }
+
+                &--price h3 {
+                    font-family: 'Nunito', sans-serif;
+                    font-size: 14px;
+                    font-style: italic;
+                    font-weight: 300;
+                    line-height: 19px;
+                    letter-spacing: 0px;
+                    text-align: left;
+                    text-decoration: line-through;
+                    color: $primary;
+
+                    padding: 0 0 0 20px;
+                }
+
+                &--name {
+                    font-family: 'Nunito', sans-serif;
+                    font-size: 24px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 28px;
+                    letter-spacing: 0px;
+                    text-align: left;
+                    color: $black;
+                }
+
+                &--desc {
+                    font-family: 'Nunito', sans-serif;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 300;
+                    line-height: 22px;
+                    letter-spacing: 0px;
+                    text-align: left;
+                    color: $darkGray;
+                }
+            }
+        }
+
+        &--card:hover {
+            box-shadow: 0 2px 5px rgba($color: $trueBlack, $alpha: 0.5);
         }
     }
 }
