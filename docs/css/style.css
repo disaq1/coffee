@@ -24,6 +24,14 @@ input:focus {
   outline: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f8fbff;
+}
+
 .wrapper {
   margin: 0;
   padding: 0;
@@ -129,6 +137,21 @@ input:focus {
   top: 86px;
   right: 210px;
   z-index: 1;
+  display: none;
+  -webkit-transition: 0.6s;
+  -o-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.header__cart:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.5);
+      -ms-transform: scale(1.5);
+          transform: scale(1.5);
+}
+
+.active .header__cart {
+  display: block;
 }
 
 .header__title {
@@ -244,6 +267,21 @@ input:focus {
   width: 226px;
   margin: 0 33px;
   padding: 17px;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.features__card img {
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.features__card img:hover {
+  -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 .features__card--name {
@@ -255,6 +293,7 @@ input:focus {
   letter-spacing: 0px;
   text-align: left;
   color: #232C38;
+  margin: 25px 0 12px;
 }
 
 .features__card--text {
@@ -266,12 +305,14 @@ input:focus {
   letter-spacing: 0px;
   text-align: center;
   color: #151D28;
+  margin: 0;
 }
 
 .main-catalog {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  min-height: 100vh;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -328,10 +369,8 @@ input:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin: 16px 15px;
+  min-width: 580px;
+  margin: 16px 0 16px 14px;
   padding: 0 41px 0 0;
   background: #ffffff;
   -webkit-transition: all 0.3s ease;
@@ -343,8 +382,8 @@ input:focus {
   -webkit-transform: translateY(-1px);
       -ms-transform: translateY(-1px);
           transform: translateY(-1px);
-  -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5), 0 -5px 5px rgba(0, 0, 0, 0.5), 5px 0 5px rgba(0, 0, 0, 0.5), -5px 0 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5), 0 -5px 5px rgba(0, 0, 0, 0.5), 5px 0 5px rgba(0, 0, 0, 0.5), -5px 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .card__img {
@@ -432,9 +471,6 @@ input:focus {
 
 .card__description--btn:hover {
   cursor: pointer;
-  -webkit-transform: scale(1.01);
-      -ms-transform: scale(1.01);
-          transform: scale(1.01);
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
@@ -457,4 +493,342 @@ input:focus {
 .card__description--more:hover {
   text-decoration: underline;
   color: #000000;
+}
+
+.main-gift {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin: 0 0 150px 0;
+}
+
+.main-gift::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  background: #EDF0F5;
+  width: 1076px;
+  height: 100vh;
+  z-index: 0;
+}
+
+.main-gift__title {
+  z-index: 10;
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #415167;
+  margin: 86px auto 66px;
+}
+
+.main-gift__title--span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 34px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.tab {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  overflow: hidden;
+  border: 1px solid #EDF0F5;
+  background-color: #EDF0F5;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.tablinks {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 34px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #415167;
+}
+
+.tab__info--wrapp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 2;
+  background: #F9FBFF;
+}
+
+/* Style the buttons inside the tab */
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 77px 44px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+
+.tab button.active {
+  background: #F9FBFF;
+}
+
+/* Style the tab content */
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+}
+
+.tabcontent:first-child {
+  display: block;
+}
+
+.gift__wrapper {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.img--wrapper {
+  position: absolute;
+  top: 0;
+  left: -250px;
+  margin: 64px 64px 0 0;
+  -webkit-transition: 1.4s;
+  -o-transition: 1.4s;
+  transition: 1.4s;
+}
+
+.img--wrapper:hover {
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.gift__desc {
+  margin: 64px 0 0 300px;
+  max-width: 430px;
+}
+
+.gift__desc--price {
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #C7A17A;
+}
+
+.gift__desc--name {
+  font-family: 'Nunito', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #232C38;
+}
+
+.gift__desc--description {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 22px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #151D28;
+}
+
+.gift__desc--characteristic {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.characteristic {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 38px 46px 0;
+}
+
+.characteristic--desc {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #415167;
+  margin: 0 0 0 12px;
+}
+
+.characteristic--desc p {
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+}
+
+.main-combo {
+  width: 100%;
+  min-height: 100vh;
+  z-index: 1;
+  position: relative;
+}
+
+.main-combo::after {
+  width: 327px;
+  height: 100%;
+  min-height: 100vh;
+  position: absolute;
+  content: '';
+  top: 0;
+  right: 0;
+  background: #415167;
+  z-index: 0;
+}
+
+.main-combo__catalog {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 2;
+}
+
+.main-combo__catalog--card {
+  max-width: 360px;
+  margin: 0 15px;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  z-index: 2;
+}
+
+.main-combo__catalog--card-img-wrapper {
+  background: #EDF0F5;
+}
+
+.main-combo__catalog--card-img-wrapper img {
+  -webkit-transition: 0.7s;
+  -o-transition: 0.7s;
+  transition: 0.7s;
+}
+
+.main-combo__catalog--card-img-wrapper img:hover {
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.main-combo__catalog--card-description {
+  background: #ffffff;
+  padding: 34px 42px 42px;
+}
+
+.main-combo__catalog--card-description--price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #C7A17A;
+}
+
+.main-combo__catalog--card-description--price h3 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 19px;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: line-through;
+  color: #415167;
+  padding: 0 0 0 20px;
+}
+
+.main-combo__catalog--card-description--name {
+  font-family: 'Nunito', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #232C38;
+}
+
+.main-combo__catalog--card-description--desc {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 22px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #151D28;
+}
+
+.main-combo__catalog--card:hover {
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
